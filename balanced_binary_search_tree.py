@@ -57,7 +57,7 @@ class Tree(object):
             return + 1 + self.right_tree_height_run(node.right_node)
 
     def left_tree_height(self):
-        return self.right_tree_height_run(self.root)
+        return self.left_tree_height_run(self.root)
 
     def left_tree_height_run(self, node):
         if node is None:
