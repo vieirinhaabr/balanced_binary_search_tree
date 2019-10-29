@@ -12,26 +12,41 @@ class Node(object):
         if info > self.info:
             if self.right_node is None:
                 self.right_node = Node(info)
+                return 1
             else:
-                self.right_node.create_node(info)
+                return 1 + self.right_node.create_node(info)
         elif info < self.info:
             if self.left_node is None:
                 self.left_node = Node(info)
+                return 1
             else:
-                self.left_node.create_node(info)
+                return 1 + self.left_node.create_node(info)
         else:
             print('Node ', info, ' is already on tree')
+            return 0
 
 
 class Tree(object):
     def __init__(self):
         self.root = None
+        self.left_height = 0
+        self.right_height = 0
 
     def insert_in_tree(self, info):
         if type(info) == int:
             if self.root is not None:
-                self.root.create_node(info)
+                height = self.root.create_node(info)
+                if height != 0:
+                    if info > self.root.info:
+                        if height > self.right_height:
+                            self.right_height = height
+                    elif info < self.root.info:
+                        if height > self.left_height:
+                            self.left_height = height
+                    #need_balance(self.root)
             else:
+                self.left_height = 1
+                self.right_height = 1
                 self.root = Node(info)
         else:
             print('Int expected, but ', info, ' are ', type(info), ' type variable')
@@ -46,21 +61,3 @@ class Tree(object):
         self.in_order_run(node.left_node)
         print(node.info, ' ', end='')
         self.in_order_run(node.right_node)
-
-    def right_tree_height(self):
-        return self.right_tree_height_run(self.root)
-
-    def right_tree_height_run(self, node):
-        if node is None:
-            return + 0
-        else:
-            return + 1 + self.right_tree_height_run(node.right_node)
-
-    def left_tree_height(self):
-        return self.left_tree_height_run(self.root)
-
-    def left_tree_height_run(self, node):
-        if node is None:
-            return + 0
-        else:
-            return + 1 + self.left_tree_height_run(node.left_node)
