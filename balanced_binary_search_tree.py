@@ -43,7 +43,7 @@ class Tree(object):
                     elif info < self.root.info:
                         if height > self.left_height:
                             self.left_height = height
-                    #need_balance(self.root)
+                    self.need_balance(self.root)
             else:
                 self.left_height = 1
                 self.right_height = 1
@@ -61,3 +61,16 @@ class Tree(object):
         self.in_order_run(node.left_node)
         print(node.info, ' ', end='')
         self.in_order_run(node.right_node)
+
+    def need_balance(self, node):
+        counter = self.left_height - self.right_height
+        if counter > 1:
+            #rotate to right
+            #balance_tree(node, counter)
+            print('rotate to right: counter -> ', counter)
+        elif counter < -1:
+            #rotate to left
+            #balance_tree(node, counter)
+            print('rotate to left: counter -> ', counter)
+        else:
+            print("\nDon't need balance !!!")
