@@ -79,8 +79,10 @@ class Tree(object):
             print("Don't need balance !!!\n")
 
     def rotate_right(self, node):
-        self.root = self.root.left_node
-        self.root.right_node = node
-        node.left_node = None
-
-        print('Concluded: Rotate to right.\n')
+        if node.left_node.right_node is None:
+            self.root = self.root.left_node
+            self.root.right_node = node
+            node.left_node = None
+            print('Concluded: Rotate to right.\n')
+        else:
+            self.rotate_right(node.left_node)
