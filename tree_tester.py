@@ -19,15 +19,26 @@ if __name__ == "__main__":
         tree_control.in_order()
     print('To print spend {:.5f} seconds'.format(float(t)))"""
 
-    tree_control.insert_in_tree(20)
+    """tree_control.insert_in_tree(20)
     tree_control.insert_in_tree(25)
     tree_control.insert_in_tree(19)
     tree_control.insert_in_tree(15)
     tree_control.insert_in_tree(14)
     tree_control.insert_in_tree(16)
-    tree_control.insert_in_tree(17)
+    tree_control.insert_in_tree(17)"""
 
-    #tree_control.in_order()
+    tree_control.insert_in_tree(20)
+    tree_control.insert_in_tree(21)
+    tree_control.insert_in_tree(22)
+    tree_control.insert_in_tree(19)
+    tree_control.insert_in_tree(18)
+    tree_control.insert_in_tree(17)
+    tree_control.insert_in_tree(16)
+    tree_control.insert_in_tree(15)
+    tree_control.insert_in_tree(14)
+
+    tree_control.in_order()
+    print('\n\n root: ', tree_control.root.info)
 
     print('\n left: ', tree_control.left_height)
 

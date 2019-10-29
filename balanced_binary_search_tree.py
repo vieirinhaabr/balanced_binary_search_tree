@@ -66,11 +66,21 @@ class Tree(object):
         counter = self.left_height - self.right_height
         if counter > 1:
             #rotate to right
-            #balance_tree(node, counter)
+            self.right_height = self.right_height + 1
+            self.left_height = self.left_height - 1
             print('rotate to right: counter -> ', counter)
+            self.rotate_right(self.root)
         elif counter < -1:
             #rotate to left
-            #balance_tree(node, counter)
+            self.right_height = self.right_height - 1
+            self.left_height = self.left_height + 1
             print('rotate to left: counter -> ', counter)
         else:
-            print("\nDon't need balance !!!")
+            print("Don't need balance !!!\n")
+
+    def rotate_right(self, node):
+        self.root = self.root.left_node
+        self.root.right_node = node
+        node.left_node = None
+
+        print('Concluded: Rotate to right.\n')
