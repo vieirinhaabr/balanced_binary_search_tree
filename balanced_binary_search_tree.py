@@ -191,3 +191,20 @@ class Tree(object):
                 self.root.left_node.right_height = 0
                 self.root.left_node.right_node = None
                 print('Concluded: Complex-Rotate to right.\n')
+
+    def search_node(self, search):
+        calls = self.search_node_run(self.root, search) + 1
+        print('Was made ', calls, ' calls on this operation!')
+
+    def search_node_run(self, node, search):
+        if node is not None:
+            if node.info == search:
+                print('\nNode ', node.info, ' find!!!')
+                return 0
+            elif node.info < search:
+                return 1 + self.search_node_run(node.right_node, search)
+            else:
+                return 1 + self.search_node_run(node.left_node, search)
+        else:
+            print('\nNode is no present on Tree!!')
+            return 0

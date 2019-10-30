@@ -7,12 +7,15 @@ if __name__ == "__main__":
 
     # Mean to go down -> 5.5 sec
 
-    """i = 0
+    i = 0
     with Chronometer() as t:
         while i < 10000:
-            tree_control.insert_in_tree(rdn.randint(1,1000000))
+            info = rdn.randint(1,1000000)
+            tree_control.insert_in_tree(info)
+            if i == 5000:
+                temp = info
             i = i + 1
-    print('To insert spend {:.5f} seconds'.format(float(t)))"""
+    print('To insert spend {:.5f} seconds'.format(float(t)))
 
     """with Chronometer() as t:
         print('\nin order: ', end='')
@@ -56,17 +59,22 @@ if __name__ == "__main__":
     tree_control.insert_in_tree(25)
     tree_control.insert_in_tree(20)"""
 
-    tree_control.insert_in_tree(55)
+    """tree_control.insert_in_tree(55)
     tree_control.insert_in_tree(50)
     tree_control.insert_in_tree(60)
     tree_control.insert_in_tree(51)
     tree_control.insert_in_tree(45)
     tree_control.insert_in_tree(54)
     tree_control.insert_in_tree(52)
-    tree_control.insert_in_tree(53)
+    tree_control.insert_in_tree(53)"""
 
     tree_control.in_order()
     print('\n\n root: ', tree_control.root.info)
+
+    print('\n Left height: ', tree_control.root.left_height)
+    print(' Right height: ', tree_control.root.right_height)
+
+    tree_control.search_node(temp)
 
     """print('\n', tree_control.root.right_height)
 
