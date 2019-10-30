@@ -1,3 +1,9 @@
+import os
+
+terminal_size = os.get_terminal_size()
+columns = terminal_size[0]
+lines = terminal_size[1]
+
 class Node(object):
     def __init__(self, info):
         self.info = info
@@ -44,7 +50,7 @@ class Tree(object):
         if type(info) == int:
             if self.root is not None:
                 self.root.create_node(info)
-                self.need_balance(self.root)
+                #self.need_balance(self.root)
             else:
                 self.root = Node(info)
         else:
@@ -216,7 +222,19 @@ class Tree(object):
             print("Calling the method to get Truple Tree")
             truple_tree = self.create_tree_truple(self.root)
 
-            print(truple_tree)
+            print(truple_tree, '\n')
+
+            self.print_tree_run(truple_tree)
+
+    def print_tree_run(self, truple_tree, space_left=0, space_right=2):
+        i = space_left
+        while i != self.root.left_height:
+            print('        ', end='')
+            i = i + 1
+        space_left = space_left + 1
+        print(truple_tree[0])
+        if (truple_tree[1] and truple_tree[2]) is not False:
+            self.print_tree_run(truple_tree[1], space_left, space_right)
 
     def create_tree_truple(self, node):
         if (node.left_node is None) and (node.right_node is None):

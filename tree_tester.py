@@ -82,7 +82,7 @@ if __name__ == "__main__":
     tree_control.insert_in_tree(25)
     tree_control.insert_in_tree(20)"""
 
-    tree_control.insert_in_tree(50)
+    """tree_control.insert_in_tree(50)
     tree_control.insert_in_tree(25)
     tree_control.insert_in_tree(12)
     tree_control.insert_in_tree(15)
@@ -91,7 +91,15 @@ if __name__ == "__main__":
     tree_control.insert_in_tree(10)
     tree_control.insert_in_tree(100)
     tree_control.insert_in_tree(125)
+    tree_control.insert_in_tree(75)"""
+
+    tree_control.insert_in_tree(50)
+    tree_control.insert_in_tree(100)
+    tree_control.insert_in_tree(150)
     tree_control.insert_in_tree(75)
+    tree_control.insert_in_tree(25)
+    tree_control.insert_in_tree(5)
+    tree_control.insert_in_tree(40)
 
     tree_control.in_order()
     print('\n\n root: ', tree_control.root.info)
