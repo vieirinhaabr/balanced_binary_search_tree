@@ -27,7 +27,7 @@ if __name__ == "__main__":
     tree_control.insert_in_tree(16)
     tree_control.insert_in_tree(17)"""
 
-    tree_control.insert_in_tree(20)
+    """tree_control.insert_in_tree(20)
     tree_control.insert_in_tree(21)
     tree_control.insert_in_tree(22)
     tree_control.insert_in_tree(18)
@@ -37,11 +37,38 @@ if __name__ == "__main__":
     tree_control.insert_in_tree(10)
     tree_control.insert_in_tree(9)
     tree_control.insert_in_tree(8)
-    tree_control.insert_in_tree(7)
+    tree_control.insert_in_tree(7)"""
+
+    tree_control.insert_in_tree(50)
+    tree_control.insert_in_tree(45)
+    tree_control.insert_in_tree(55)
+    tree_control.insert_in_tree(60)
+    tree_control.insert_in_tree(57)
+    tree_control.insert_in_tree(65)
+    tree_control.insert_in_tree(46)
+    tree_control.insert_in_tree(47)
+    tree_control.insert_in_tree(48)
+    tree_control.insert_in_tree(40)
+    tree_control.insert_in_tree(43)
+    tree_control.insert_in_tree(35)
+    tree_control.insert_in_tree(37)
+    tree_control.insert_in_tree(30)
+    tree_control.insert_in_tree(25)
+    tree_control.insert_in_tree(20)
 
     tree_control.in_order()
     print('\n\n root: ', tree_control.root.info)
 
-    print('\n left: ', tree_control.left_height)
+    """print('\n', tree_control.root.right_height)
 
-    print('\n right: ', tree_control.right_height)
+    print('\n', tree_control.root.left_height)
+
+    print('\n', tree_control.root.right_node.right_height)
+
+    print('\n', tree_control.root.right_node.right_node.right_height)
+    print('', tree_control.root.right_node.right_node.left_height)
+
+    print('\n', tree_control.root.right_node.right_node.right_node.right_height)
+
+    print('\n', tree_control.root.left_node.left_height)
+    print('', tree_control.root.left_node.right_height)"""

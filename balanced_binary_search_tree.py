@@ -3,6 +3,8 @@ class Node(object):
         self.info = info
         self.left_node = None
         self.right_node = None
+        self.left_height = 0
+        self.right_height = 0
         print("Node Inserted")
 
     """def __str__(self):
@@ -12,15 +14,23 @@ class Node(object):
         if info > self.info:
             if self.right_node is None:
                 self.right_node = Node(info)
+                self.right_height = 1
                 return 1
             else:
-                return 1 + self.right_node.create_node(info)
+                height = self.right_node.create_node(info) + 1
+                if height > self.right_height:
+                    self.right_height = height
+                return height
         elif info < self.info:
             if self.left_node is None:
                 self.left_node = Node(info)
+                self.left_height = 1
                 return 1
             else:
-                return 1 + self.left_node.create_node(info)
+                height = self.left_node.create_node(info) + 1
+                if height > self.left_height:
+                    self.left_height = height
+                return height
         else:
             print('Node ', info, ' is already on tree')
             return 0
@@ -29,24 +39,13 @@ class Node(object):
 class Tree(object):
     def __init__(self):
         self.root = None
-        self.left_height = 0
-        self.right_height = 0
 
     def insert_in_tree(self, info):
         if type(info) == int:
             if self.root is not None:
-                height = self.root.create_node(info)
-                if height != 0:
-                    if info > self.root.info:
-                        if height > self.right_height:
-                            self.right_height = height
-                    elif info < self.root.info:
-                        if height > self.left_height:
-                            self.left_height = height
-                    self.need_balance(self.root)
+                self.root.create_node(info)
+                #self.need_balance(self.root)
             else:
-                self.left_height = 1
-                self.right_height = 1
                 self.root = Node(info)
         else:
             print('Int expected, but ', info, ' are ', type(info), ' type variable')
@@ -62,7 +61,7 @@ class Tree(object):
         print(node.info, ' ', end='')
         self.in_order_run(node.right_node)
 
-    def need_balance(self, node):
+    """def need_balance(self, node):
         counter = self.left_height - self.right_height
         if counter > 1:
             #rotate to right
@@ -85,4 +84,4 @@ class Tree(object):
             node.left_node = None
             print('Concluded: Rotate to right.\n')
         else:
-            self.rotate_right(node.left_node)
+            self.rotate_right(node.left_node)"""
