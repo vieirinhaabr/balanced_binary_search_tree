@@ -208,3 +208,22 @@ class Tree(object):
         else:
             print('\nNode is no present on Tree!!')
             return 0
+
+    def print_tree(self):
+        if self.root is None:
+            print("Wasn't find a Node on Tree")
+        else:
+            print("Calling the method to get Truple Tree")
+            truple_tree = self.create_tree_truple(self.root)
+
+            print(truple_tree)
+
+    def create_tree_truple(self, node):
+        if (node.left_node is None) and (node.right_node is None):
+            return (node.info, False, False)
+        elif node.right_node is None:
+            return (node.info, self.create_tree_truple(node.left_node), False)
+        elif node.left_node is None:
+            return (node.info, False, self.create_tree_truple(node.right_node))
+        else:
+            return (node.info, self.create_tree_truple(node.left_node), self.create_tree_truple(node.right_node))
