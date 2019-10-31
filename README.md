@@ -25,5 +25,5 @@ I use Python and:
 ## What a Balanced Binary Tree have different compared to a Simple Binary Tree?
 
 <p align="center">
-  <img width="200" height="200" style="align=center;" src="https://www.tutorialspoint.com/data_structures_algorithms/images/unbalanced_avl_trees.jpg">
+  <img width="375" height="150" style="align=center;" src="https://www.tutorialspoint.com/data_structures_algorithms/images/unbalanced_avl_trees.jpg">
 </p>
