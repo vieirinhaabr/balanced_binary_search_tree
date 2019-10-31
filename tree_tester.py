@@ -5,15 +5,16 @@ from chronometer import Chronometer
 if __name__ == "__main__":
     tree_control = Tree()
 
-    # Mean to go down -> 5.5 sec
-
     with Chronometer() as time:
         i = 0
         count = 50
+
+        #tree_control.insert_node([50,40,35,30,25,47,43,41,44,55,60,57,65])
+
         with Chronometer() as t:
             while i < count:
                 info = rdn.randint(1,100)
-                tree_control.insert_in_tree(info)
+                tree_control.insert_node(info)
                 if i == count/2:
                     temp = info
                 i = i + 1

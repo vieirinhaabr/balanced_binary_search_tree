@@ -40,15 +40,30 @@ class Tree(object):
         self.root = None
         self.elements_count = 0
 
-    def insert_in_tree(self, info):
+    def insert_node(self, info):
         if type(info) == int:
-            if self.root is not None:
-                self.root.create_node(info)
-                self.need_balance(self.root)
-            else:
-                self.root = Node(info)
+            self.insert_in_tree(info)
+        elif type(info) == list:
+            for item in info:
+                if type(item) == int:
+                    self.insert_in_tree(item)
+                else:
+                    print('Int expected, but the item ', item, ' on List is ', type(item), ' type variable')
+        elif type(info) == tuple:
+            for item in info:
+                if type(item) == int:
+                    self.insert_in_tree(item)
+                else:
+                    print('Int expected, but the item ', item, ' on Tuple is ', type(item), ' type variable')
         else:
-            print('Int expected, but ', info, ' are ', type(info), ' type variable')
+            print('Int or List expected, but ', info, ' is ', type(info), ' type variable')
+
+    def insert_in_tree(self, info):
+        if self.root is not None:
+            self.root.create_node(info)
+            self.need_balance(self.root)
+        else:
+            self.root = Node(info)
 
     def in_order(self):
         self.in_order_run(self.root)
@@ -159,40 +174,25 @@ class Tree(object):
             self.complex_rotate_left(node.left_node, isLong)
         else:
             node.left_height = node.left_height - 1
+            s = node.left_node
             if node.left_node.right_node is not None:
-                s = node.left_node
                 node.left_node = node.left_node.right_node
-                f = self.root
-                self.root = s
-                self.root.right_node = f.right_node
-                self.root.left_node = f
-
-                if isLong:
-                    self.root.right_height = f.right_height - 1
-                else:
-                    self.root.right_height = f.right_height
-
-                self.root.left_height = f.left_height + 1
-                self.root.left_node.right_height = 0
-                self.root.left_node.right_node = None
-                print('Concluded: Complex-Rotate to right.\n')
             else:
-                s = node.left_node
                 node.left_node = None
-                f = self.root
-                self.root = s
-                self.root.right_node = f.right_node
-                self.root.left_node = f
+            f = self.root
+            self.root = s
+            self.root.right_node = f.right_node
+            self.root.left_node = f
 
-                if isLong:
-                    self.root.right_height = f.right_height - 1
-                else:
-                    self.root.right_height = f.right_height
+            if isLong:
+                self.root.right_height = f.right_height - 1
+            else:
+                self.root.right_height = f.right_height
 
-                self.root.left_height = f.left_height + 1
-                self.root.left_node.right_height = 0
-                self.root.left_node.right_node = None
-                print('Concluded: Complex-Rotate to right.\n')
+            self.root.left_height = f.left_height + 1
+            self.root.left_node.right_height = 0
+            self.root.left_node.right_node = None
+            print('Concluded: Complex-Rotate to right.\n')
 
     def search_node(self, search):
         calls = self.search_node_run(self.root, search) + 1
