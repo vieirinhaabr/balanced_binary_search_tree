@@ -9,8 +9,7 @@
  
 ## What I use?
 
-I use Python and:
-  In python i use the following libs:
+I use Python and this libs:
     <ul>
       <li> drawtree (to print Tree) </li>
       <li> chronometer (to get time per instruction) </li>
@@ -20,7 +19,18 @@ I use Python and:
 
 ## What I do?
 
-
+I will explain step by step i do to balance Tree:
+  <ul>
+    I will insert some Nodes, on this example I will insert those -> [50, 40, 35, 30, 25, 47, 43, 41, 44, 55, 60, 57, 65], ok let's do it.
+    <li> First, I will insert Nodes on Tree how in reality, one by one, i will stop when Tree is unbalanced </li>
+    </br>
+    <p align="center">
+      I inserted 50, then 40, then 35 and Tree look's how this:
+      </br>
+      </br>
+      <img style="align=center;" src="https://i.ibb.co/yq14HSP/Copy-of-Untitled-Diagram.png" border="0">
+    </p>
+  </ul>
 
 ## What a Balanced Binary Tree have different compared to a Simple Binary Tree?
 
