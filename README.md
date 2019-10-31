@@ -27,3 +27,12 @@ I use Python and:
 <p align="center">
   <img width="375" height="150" style="align=center;" src="https://www.tutorialspoint.com/data_structures_algorithms/images/unbalanced_avl_trees.jpg">
 </p>
+
+<p align="center">
+  A Balanced Tree can improve a search on Tree making it more faster with some rules:
+    <ul>
+      <li> Left side and right side of root by the Tree need to have same height or in maximum one Node of difference in height </li>
+      <li> If some side is more high, is doing a balance of Tree </li>
+      <li> The balance involve passing Nodes from highest side to the lowest side (right or left) up until they have a maximum of one Node of height of difference or equal (You can see this on example image above)</li>
+    </ul>
+</p>
