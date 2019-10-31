@@ -1,8 +1,4 @@
-import os
-
-terminal_size = os.get_terminal_size()
-columns = terminal_size[0]
-lines = terminal_size[1]
+from drawtree import draw_bst
 
 class Node(object):
     def __init__(self, info):
@@ -12,9 +8,6 @@ class Node(object):
         self.left_height = 0
         self.right_height = 0
         print("Node Inserted")
-
-    """def __str__(self):
-        return self.info"""
 
     def create_node(self, info):
         if info > self.info:
@@ -45,12 +38,13 @@ class Node(object):
 class Tree(object):
     def __init__(self):
         self.root = None
+        self.elements_count = 0
 
     def insert_in_tree(self, info):
         if type(info) == int:
             if self.root is not None:
                 self.root.create_node(info)
-                #self.need_balance(self.root)
+                self.need_balance(self.root)
             else:
                 self.root = Node(info)
         else:
@@ -66,6 +60,23 @@ class Tree(object):
         self.in_order_run(node.left_node)
         print(node.info, ' ', end='')
         self.in_order_run(node.right_node)
+
+    def print_tree(self):
+        self.tree_list = []
+        self.print_tree_run(self.root)
+
+        if len(self.tree_list) > 500:
+            print("Tree have more than 500 Elements, wasn't possible to print")
+        else:
+            draw_bst(self.tree_list)
+
+    def print_tree_run(self, node):
+        if node is None:
+            return
+
+        self.tree_list.append(node.info)
+        self.print_tree_run(node.left_node)
+        self.print_tree_run(node.right_node)
 
     def need_balance(self, node):
         counter = node.left_height - node.right_height
@@ -105,40 +116,25 @@ class Tree(object):
             self.complex_rotate_right(node.right_node, isLong)
         else:
             node.right_height = node.right_height - 1
+            s = node.right_node
             if node.right_node.left_node is not None:
-                s = node.right_node
                 node.right_node = node.right_node.left_node
-                f = self.root
-                self.root = s
-                self.root.left_node = f.left_node
-                self.root.right_node = f
-
-                if isLong:
-                    self.root.left_height = f.left_height - 1
-                else:
-                    self.root.left_height = f.left_height
-
-                self.root.right_height = f.right_height + 1
-                self.root.right_node.left_height = 0
-                self.root.right_node.left_node = None
-                print('Concluded: Complex-Rotate to right.\n')
             else:
-                s = node.right_node
                 node.right_node = None
-                f = self.root
-                self.root = s
-                self.root.left_node = f.left_node
-                self.root.right_node = f
+            f = self.root
+            self.root = s
+            self.root.left_node = f.left_node
+            self.root.right_node = f
 
-                if isLong:
-                    self.root.left_height = f.left_height - 1
-                else:
-                    self.root.left_height = f.left_height
+            if isLong:
+                self.root.left_height = f.left_height - 1
+            else:
+                self.root.left_height = f.left_height
 
-                self.root.right_height = f.right_height + 1
-                self.root.right_node.left_height = 0
-                self.root.right_node.left_node = None
-                print('Concluded: Complex-Rotate to right.\n')
+            self.root.right_height = f.right_height + 1
+            self.root.right_node.left_height = 0
+            self.root.right_node.left_node = None
+            print('Concluded: Complex-Rotate to right.\n')
 
     def rotate_left(self, node):
         if node.right_node is not None:
@@ -200,48 +196,35 @@ class Tree(object):
 
     def search_node(self, search):
         calls = self.search_node_run(self.root, search) + 1
-        print('Was made ', calls, ' calls on this operation!')
+        print('    Was made ', calls, ' calls on this operation!')
 
     def search_node_run(self, node, search):
         if node is not None:
             if node.info == search:
-                print('\nNode ', node.info, ' find!!!')
+                print('    Node ', node.info, ' find!!!')
                 return 0
             elif node.info < search:
                 return 1 + self.search_node_run(node.right_node, search)
             else:
                 return 1 + self.search_node_run(node.left_node, search)
         else:
-            print('\nNode is no present on Tree!!')
+            print('\n    Node is no present on Tree!!')
             return 0
 
-    def print_tree(self):
+    def print_tree_on_tuple(self):
         if self.root is None:
-            print("Wasn't find a Node on Tree")
+            print("    Wasn't find a Node on Tree")
         else:
-            print("Calling the method to get Truple Tree")
-            truple_tree = self.create_tree_truple(self.root)
+            tuple_tree = self.create_tree_tuple(self.root)
 
-            print(truple_tree, '\n')
+            return tuple_tree
 
-            self.print_tree_run(truple_tree)
-
-    def print_tree_run(self, truple_tree, space_left=0, space_right=2):
-        i = space_left
-        while i != self.root.left_height:
-            print('        ', end='')
-            i = i + 1
-        space_left = space_left + 1
-        print(truple_tree[0])
-        if (truple_tree[1] and truple_tree[2]) is not False:
-            self.print_tree_run(truple_tree[1], space_left, space_right)
-
-    def create_tree_truple(self, node):
+    def create_tree_tuple(self, node):
         if (node.left_node is None) and (node.right_node is None):
             return (node.info, False, False)
         elif node.right_node is None:
-            return (node.info, self.create_tree_truple(node.left_node), False)
+            return (node.info, self.create_tree_tuple(node.left_node), False)
         elif node.left_node is None:
-            return (node.info, False, self.create_tree_truple(node.right_node))
+            return (node.info, False, self.create_tree_tuple(node.right_node))
         else:
-            return (node.info, self.create_tree_truple(node.left_node), self.create_tree_truple(node.right_node))
+            return (node.info, self.create_tree_tuple(node.left_node), self.create_tree_tuple(node.right_node))
