@@ -39,7 +39,15 @@ I will explain step by step what this code do to balance the Tree:
 	<p align="center">
 	<img src="https://i.ibb.co/Jms4BkY/Balanced-Tree-Step-04-1.png" border="0">
 	</p>
-	<li>On image above I replace the root with the nearest Node on highest side, in this case on left side (how you can see, now the first Node on left no is the nearest from root, in this case the nearest from root will be the last Node of the right side of the first left Node of the root  - it will be the nearest from root all times):</li>
+	<li>On image above I replace the root with the nearest Node on highest side, in this case on left side (how you can see, now the first Node on left no is the nearest from root, in this case the nearest from root will be the last Node of the right side of the first left Node of the root  - it will be the nearest from root all times), lets insert more Nodes:</li>
+  </ul>
+	<p align="center">
+	<img src="https://i.ibb.co/mNNqxZW/Balanced-Tree-Step-05.png" border="0">
+	</p>
+	<li>Again Tree its unbalanced, but now the last Node of the right side have a left Node, will be do the same process but when we pass this node to root, the left Node will be linked at Node before (in right side), after this, Tree will look how that:</li>
+	<p align="center">
+	<img src="https://i.ibb.co/2cGL7fL/Balanced-Tree-Step-06.png" border="0">
+	</p>
   </ul>
 <br>
 
