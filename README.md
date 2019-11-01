@@ -16,12 +16,12 @@ I use Python and this libs:
       <li> random (to generate random numbers and insert they on tree) </li>
     </ul>
 
-## What I do?
+## How this project work?
 
-I will explain step by step i do to balance Tree:
+I will explain step by step what this code do to balance the Tree:
   <ul>
-    I will insert some Nodes, on this example I will insert those -> [50, 40, 35, 30, 25, 47, 43, 41, 44, 55, 60, 57, 65], ok lets do it.
-    I will insert Nodes on Tree how in reality, one by one, i will stop when Tree is unbalanced.
+    I will insert some nodes, in this example I will insert these in this order -> [50, 40, 35, 36, 39, 38, 37, 51, 52, 53], ok lets do it.
+    I will insert Nodes on Tree how in reality, one by one, I will stop to explain when Tree is unbalanced.
     <br>
 	<li> I inserted 50(root), then 40, then 35 and Tree looks how this: </li>
 	<p align="center">
@@ -29,12 +29,17 @@ I will explain step by step i do to balance Tree:
 	</p>
 	<li> How you can see, Tree is unbalanced on left side, left is 2 Nodes more high than right, lets balance it:</li>
 	<p align="center">
-	<img src="https://i.ibb.co/b5fwt8j/Balanced-Tree-Step-02.png" border="0">
+	<img src="https://i.ibb.co/DgXvWZZ/Balanced-Tree-Step-02-1.png" border="0">
 	</p>
 	<li> Above I change the root of Tree to keep it balanced (how left side is the highest, i get the first Node on left and replace in root, if on this case the right side was the highest I replace the first Node on right), ok, now we can keep inserting Nodes:</li>
 	<p align="center">
-	<img src="https://i.ibb.co/6JcNYQd/Balanced-Tree-Step-02.png" border="0">
+	<img src="https://i.ibb.co/SVkW3V3/Balanced-Tree-Step-03.png" border="0">
 	</p>
+	<li>On image above how you can see, Tree is again unbalanced, lets balance it:</li>
+	<p align="center">
+	<img src="https://i.ibb.co/Jms4BkY/Balanced-Tree-Step-04-1.png" border="0">
+	</p>
+	<li>On image above I replace the root with the nearest Node on highest side, in this case on left side (how you can see, now the first Node on left no is the nearest from root, in this case the nearest from root will be the last Node of the right side of the first left Node of the root  - it will be the nearest from root all times):</li>
   </ul>
 <br>
 
