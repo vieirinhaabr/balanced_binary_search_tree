@@ -20,7 +20,7 @@ I use Python and this libs:
 
 I will explain step by step what this code do to balance the Tree:
   <ul>
-    I will insert some nodes, in this example I will insert these in this order -> [50, 40, 35, 36, 39, 38, 37, 51, 52, 53], ok lets do it.
+    I will insert some nodes, in this example I will insert these in this order -> [50, 40, 35, 36, 39, 38, 37, 51, 52], ok lets do it.
     I will insert Nodes on Tree how in reality, one by one, I will stop to explain when Tree is unbalanced.
     <br>
 	<li> I inserted 50(root), then 40, then 35 and Tree looks how this: </li>
@@ -48,6 +48,15 @@ I will explain step by step what this code do to balance the Tree:
 	<p align="center">
 	<img src="https://i.ibb.co/2cGL7fL/Balanced-Tree-Step-06.png" border="0">
 	</p>
+	<li>Lets insert more Nodes:</li>
+	<p align="center">
+	<img src="https://i.ibb.co/XCy1cyH/Balanced-Tree-Step-07.png" border="0">
+	</p>
+	<li>Again Tree is unbalanced, but now on right side, to balance we will use the same process before, replacing the root with first Node of the highest side:</li>
+	<p align="center">
+	<img src="https://i.ibb.co/nRtvjJ1/Balanced-Tree-Step-08.png" border="0">
+	</p>
+	<li>Now we insert all Nodes and Tree is balanced, it will improve the search :D</li>
   </ul>
 <br>
 
