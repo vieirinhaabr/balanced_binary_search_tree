@@ -65,8 +65,9 @@ I will explain step by step what this code do to balance the Tree:
 I will talk about some functions in the code above, what they do and how they work:
 <br>
 
-<h5 align="center">need_balance()</h5>
-<p> It </p>
+<h4 align="center">Node class</h4>
+<h5 align="center">__init__</h5><p> Will start a new Node with Left side, Right side, and height empty </p> <h5 align="center">create_node</h5><p> Will insert a Node on Tree based on sequence, if is minor than root will be inserted on left side, if bigger will be inserted on right side, case the side is no empty, will be compare with next Node, same how root  </p>
+<h4 align="center">Tree class</h4> <h5 align="center">__init__</h5><p> Will init the Tree with root empty (because the first insertion will be the root be default) </p> <h5 align="center">insert_node</h5><p> Will be check if is passing a list, a tuple or a interger, case its a list or tuple, it will be start a loop to insert the content ,insertion after insertion will be checked if is a interger, case not is a interger, it shows a error message and continue insertions calling **insert_in_tree** function</p> <h5 align="center">insert_in_tree</h5><p> Will be check if root is empty, case is empty, the first Node inserted will be the root, case isnt, will be inserted on Tree calling  **create_node** function on Node class</p>
 
 ## What a Balanced Binary Tree have different compared to a Simple Binary Tree?
 
