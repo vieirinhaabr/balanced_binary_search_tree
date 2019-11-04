@@ -65,14 +65,14 @@ I will explain step by step what this code do to balance the Tree:
 I will talk about some functions in the code above, what they do and how they work:
 <br>
 
-<h4 align="center">Node class</h4>
-<h5 align="center">__init__</h5><p> Will start a new Node with Left side, Right side, and height empty </p> <h5 align="center">create_node</h5><p> Will insert a Node on Tree based on sequence, if is minor than root will be inserted on left side, if bigger will be inserted on right side, case the side is no empty, will be compare with next Node, same how root  </p>
-<h4 align="center">Tree class</h4> <h5 align="center">__init__</h5><p> Will init the Tree with root empty (because the first insertion will be the root be default) </p> <h5 align="center">insert_node</h5><p> Will be check if is passing a list, a tuple or a interger, case its a list or tuple, it will be start a loop to insert the content ,insertion after insertion will be checked if is a interger, case not is a interger, it shows a error message and continue insertions calling **insert_in_tree** function</p> <h5 align="center">insert_in_tree</h5><p> Will be check if root is empty, case is empty, the first Node inserted will be the root, case isnt, will be inserted on Tree calling  **create_node** function on Node class</p>
+<h3 align="center">Node class</h3>
+<h4 align="center">__init__</h4><p> Will start a new Node with Left side, Right side, and height empty </p> <h4 align="center">create_node</h4><p> Will insert a Node on Tree based on sequence, if is minor than root will be inserted on left side, if bigger will be inserted on right side, case the side is no empty, will be compare with next Node, same how root  </p>
+<h3 align="center">Tree class</h3> <h4 align="center">__init__</h4><p> Will init the Tree with root empty (because the first insertion will be the root be default) </p> <h4 align="center">insert_node</h4><p> Will be check if is passing a list, a tuple or a interger, case its a list or tuple, it will be start a loop to insert the content ,insertion after insertion will be checked if is a interger, case not is a interger, it shows a error message and continue insertions calling **insert_in_tree** function</p> <h4 align="center">insert_in_tree</h4><p> Will be check if root is empty, case is empty, the first Node inserted will be the root, case isnt, will be inserted on Tree calling  **create_node** function on Node class, after this will be check if Tree need balance, calling **need_balance** function</p> <h4 align="center">in_order</h4><p> Will print the Nodes inserted **in order**, that consists in print left side first, root and right side for last</p> <h4 align="center">in_order</h4><p> Will print the Nodes inserted **in order**, that consists in print left side first, root and right side for last</p> <h4 align="center">print_tree</h4><p> Will print the Tree(using drawtree Lib) if this no have more than 500 Nodes</p> <h4 align="center">need_balance</h4><p> Will check if Tree need balance, case yes, him check where is highest and need rotation, after this him will call **rotate_right** or **rotate_left** to balance and after will call himself to check if need another rotation, case not, will be print a message</p> <h4 align="center">rotate_right</h4><p> Will be pass a Node from left side to right side to balance Tree if left Node of root havent right Node, case not, will be call **complex_rotate_right**</p> <h4 align="center">complex_rotate_right</h4><p> Is called case left Node of root have right Node, on this case, last Node from right side of left Node, of root will be passed to right side </p> <h4 align="center">rotate_left</h4><p> Will be pass a Node from right side to left side to balance Tree if right Node of root havent left Node, case not, will be call **complex_rotate_left**</p> <h4 align="center">complex_rotate_left</h4><p> Is called case right Node of root have left Node, on this case, last Node from left side of right Node, of root will be passed to left side </p>
 
 ## What a Balanced Binary Tree have different compared to a Simple Binary Tree?
 
 <p align="center">
-<img width="375" height="150" style="align=center;" src="https://www.tutorialspoint.com/data_structures_algorithms/images/unbalanced_avl_trees.jpg">
+<img width="375" height="150" style="align=center;" src="">
 </p>
 
 <p align="left">
@@ -80,7 +80,7 @@ I will talk about some functions in the code above, what they do and how they wo
     <ul>
       <li> Left side and right side of the Tree need to have same height or in maximum one Node of difference in height (height its referenced by root of the Tree)</li>
       <li> If some side is more high, is doing a balance of Tree </li>
-      <li> The balance involve passing Nodes from highest side to the lowest side (right or left) up until they have a maximum of one Node of height of difference or equal (You can see this on example image above)</li>
+      <li> This model of balance involve passing Nodes from highest side to the lowest side (right or left) up until they have a maximum of one Node of height of difference or equal (You can see this on example image above)</li>
     </ul>
 </p>
 <br>
