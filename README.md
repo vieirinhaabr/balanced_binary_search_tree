@@ -60,6 +60,14 @@ I will explain step by step what this code do to balance the Tree:
   </ul>
 <br>
 
+## About Functions
+
+I will talk about some functions in the code above, what they do and how they work:
+<br>
+
+<h5 align="center">need_balance()</h5>
+<p> It </p>
+
 ## What a Balanced Binary Tree have different compared to a Simple Binary Tree?
 
 <p align="center">
